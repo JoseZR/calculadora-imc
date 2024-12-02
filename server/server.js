@@ -8,7 +8,7 @@ require('dotenv').config();
 
 // Configuración de servidor
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const SECRET_KEY = 'your_secret_key_here';
 
 // Configuración de base de datos
