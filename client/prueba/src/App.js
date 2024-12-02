@@ -19,17 +19,27 @@ function App() {
     };
 
     return (
-        <div className="App">
+        <div className="app-container">
             {view === 'profile' ? (
-                <div>
+                <div className="profile-container">
                     <Profile />
-                    <button onClick={handleLogout}>Cerrar Sesión</button>
+                    <button className="logout-button" onClick={handleLogout}>Cerrar Sesión</button>
                 </div>
             ) : (
-                <div>
-                    <div>
-                        <button onClick={() => setView('login')}>Iniciar Sesión</button>
-                        <button onClick={() => setView('register')}>Registrarse</button>
+                <div className="auth-container">
+                    <div className="auth-buttons">
+                        <button 
+                            className="auth-button login-button" 
+                            onClick={() => setView('login')}
+                        >
+                            Iniciar Sesión
+                        </button>
+                        <button 
+                            className="auth-button register-button" 
+                            onClick={() => setView('register')}
+                        >
+                            Registrarse
+                        </button>
                     </div>
                     {view === 'login' && <Login onLoginSuccess={handleLoginSuccess} />}
                     {view === 'register' && <Register />}
