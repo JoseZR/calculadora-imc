@@ -118,8 +118,6 @@ body {
 /* Vista de autenticación */
 .auth-container {
   padding: 20px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
   border-radius: 8px;
 }
 
