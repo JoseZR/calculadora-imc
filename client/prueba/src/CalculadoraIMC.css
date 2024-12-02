@@ -1,0 +1,118 @@
+/* Contenedor principal */
+.calculadora-imc-container {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Título */
+.calculadora-imc-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.calculadora-imc-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.calculadora-imc-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Botón */
+.calculadora-imc-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calculadora-imc-button:hover {
+    background-color: #0056b3;
+}
+
+/* Mensaje de IMC */
+.calculadora-imc-result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Mensaje de estado */
+.calculadora-imc-status {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #eef6f8;
+    color: #333;
+    border-radius: 8px;
+}
+
+/* Mensaje de alerta */
+.calculadora-imc-message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fcebea;
+    color: #000000;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/* Estado bajo peso */
+.status-low {
+    background-color: #fef4e8;
+    color: #e67e22;
+    border: 1px solid #e67e22;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Estado peso normal */
+.status-normal {
+    background-color: #e8f5e9;
+    color: #28a745;
+    border: 1px solid #28a745;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Estado sobre peso */
+.status-high {
+    background-color: #fff4e6;
+    color: #ffa500;
+    border: 1px solid #ffa500;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Estado obesidad */
+.status-obese {
+    background-color: #fdecea;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    padding: 10px;
+    border-radius: 8px;
+}

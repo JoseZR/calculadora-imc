@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import './CalculadoraIMC.css';
 
 const CalculadoraIMC = () => {
   const [weight, setWeight] = useState('');
@@ -8,6 +8,22 @@ const CalculadoraIMC = () => {
   const [bmi, setBMI] = useState(null);
   const [status, setStatus] = useState('');
   const [message, setMessage] = useState('');
+
+  const getStatusClass = () => {
+    switch (status) {
+      case 'Bajo peso':
+        return 'status-low';
+      case 'Peso normal':
+        return 'status-normal';
+      case 'Sobre peso':
+        return 'status-high';
+      case 'Obesidad':
+        return 'status-obese';
+      default:
+        return '';
+    }
+  };
+  
 
   const calculateBMI = () => {
     const weightNum = parseFloat(weight);
@@ -23,7 +39,6 @@ const CalculadoraIMC = () => {
     const numeroRedondeadoIMC = resultIMC.toFixed(2);
     setBMI(numeroRedondeadoIMC);
 
-
     if (numeroRedondeadoIMC < 18.5) {
       setStatus('Bajo peso');
     } else if (numeroRedondeadoIMC >= 18.5 && numeroRedondeadoIMC < 25) {
@@ -36,7 +51,7 @@ const CalculadoraIMC = () => {
   };
 
   const handleSubmit = async () => {
-    calculateBMI(); // Calcula el IMC primero
+    calculateBMI();
 
     const token = localStorage.getItem('token');
     if (!token) {
@@ -45,18 +60,19 @@ const CalculadoraIMC = () => {
     }
 
     try {
-      const response = await axios.put('http://localhost:5000/api/update-health-metrics', 
+      const response = await axios.put(
+        'http://localhost:5000/api/update-health-metrics',
         {
           weight: parseFloat(weight),
           height: parseFloat(height),
           bmi: parseFloat(bmi),
-          bmi_status: status
+          bmi_status: status,
         },
         {
           headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          }
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
         }
       );
 
@@ -67,51 +83,41 @@ const CalculadoraIMC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-center">Actualizar Métricas de Salud</h2>
-      
-      <div className="mb-4">
-        <label className="block mb-2 font-semibold">Peso (kg)</label>
-        <input 
-          type="number" 
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
-          placeholder="Ingresa tu peso"
-          className="w-full p-2 border rounded"
-        />
-      </div>
-      
-      <div className="mb-4">
-        <label className="block mb-2 font-semibold">Altura (m)</label>
-        <input 
-          type="number" 
-          value={height}
-          onChange={(e) => setHeight(e.target.value)}
-          placeholder="Ingresa tu altura en metros"
-          step="0.01"
-          className="w-full p-2 border rounded"
-        />
-      </div>
-      
-      <button 
-        onClick={handleSubmit}
-        className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
-      >
+    <div className="calculadora-imc-container">
+      <h2 className="calculadora-imc-title">Conoce tu estado de nutrición</h2>
+
+      <input
+        type="number"
+        value={weight}
+        onChange={(e) => setWeight(e.target.value)}
+        placeholder="Peso (kg)"
+        className="calculadora-imc-input"
+      />
+
+      <input
+        type="number"
+        value={height}
+        onChange={(e) => setHeight(e.target.value)}
+        placeholder="Altura (m)"
+        className="calculadora-imc-input"
+        step="0.01"
+      />
+
+      <button onClick={handleSubmit} className="calculadora-imc-button">
         Actualizar Métricas
       </button>
-      
-      {bmi && status && (
-        <div className="mt-4 text-center">
-          <p>Tu IMC es: {bmi}  kg/m2 </p>
-          <p>Estado: {status}</p>
-        </div>
-      )}
 
-      {message && (
-        <div className="mt-4 p-3 text-center bg-gray-100 rounded">
-          {message}
+      {bmi && status && (
+        <div className="calculadora-imc-result">
+          <p>Tu IMC es: {bmi} kg/m²</p>
+          {bmi && status && (
+        <div className={`calculadora-imc-status ${getStatusClass()}`}>
+          <p> <strong>Estado: {status}</strong> </p>
         </div>
       )}
+        </div>
+      )}
+      {message && <div className="calculadora-imc-message">{message}</div>}
     </div>
   );
 };
