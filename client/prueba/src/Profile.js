@@ -13,12 +13,12 @@ function Profile() {
         const birth = new Date(birthDate);
         let age = today.getFullYear() - birth.getFullYear();
         const monthDifference = today.getMonth() - birth.getMonth();
-        
-        if (monthDifference < 0 || 
+
+        if (monthDifference < 0 ||
             (monthDifference === 0 && today.getDate() < birth.getDate())) {
             age--;
         }
-        
+
         return age;
     };
 
@@ -77,18 +77,20 @@ function Profile() {
 
     return (
         <>
-        <div className="user-profile-container">
-            <h2 className="user-profile-title">Perfil del Usuario</h2>
-            <div className="user-profile-details">
-                <p><strong>Usuario:</strong> {userData.username}</p>
-                <p><strong>Nombre:</strong> {userData.full_name}</p>
-                <p><strong>Email:</strong> {userData.email}</p>
-                <p><strong>Fecha de Nacimiento:</strong> {formatDate(userData.birth_date)}</p>
-                <p><strong>Edad:</strong> {calculateAge(userData.birth_date)} años</p>
-                <p><strong>Sexo:</strong> {sexo(userData.sex)}</p>
-            </div>
-        </div>
-        <CalculadoraIMC />
+            <section className="container-padre">
+                <div className="user-profile-container">
+                    <h2 className="user-profile-title">Perfil del Usuario</h2>
+                    <div className="user-profile-details">
+                        <p><strong>Usuario:</strong> {userData.username}</p>
+                        <p><strong>Nombre:</strong> {userData.full_name}</p>
+                        <p><strong>Email:</strong> {userData.email}</p>
+                        <p><strong>Fecha de Nacimiento:</strong> {formatDate(userData.birth_date)}</p>
+                        <p><strong>Edad:</strong> {calculateAge(userData.birth_date)} años</p>
+                        <p><strong>Sexo:</strong> {sexo(userData.sex)}</p>
+                    </div>
+                </div>
+                <CalculadoraIMC />
+            </section>
         </>
     );
 }

@@ -1,6 +1,16 @@
 /* Contenedor principal del perfil */
+
+.container-padre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+    gap: 20px;
+}
+
 .user-profile-container {
-    max-width: 600px;
+    width: 600px;
     margin: 20px auto;
     padding: 20px;
     background-color: #f9f9f9;
