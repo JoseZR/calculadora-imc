@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CalculadoraIMC from './CalculadoraIMC';
+import './Profile.css';
 
 function Profile() {
     const [userData, setUserData] = useState(null);
@@ -76,20 +77,19 @@ function Profile() {
 
     return (
         <>
-        <div>
-            <h2>Perfil del Usuario</h2>
-            <p><strong>Usuario:</strong> {userData.username}</p>
-            <p><strong>Nombre:</strong> {userData.full_name}</p>
-            <p><strong>Email:</strong> {userData.email}</p>
-            <p><strong>Fecha de Nacimiento:</strong> {formatDate(userData.birth_date)}</p>
-            <p><strong>Edad:</strong> {calculateAge(userData.birth_date)} años</p>
-            <p><strong>Sexo:</strong> : {sexo(userData.sex)} </p>
-
+        <div className="user-profile-container">
+            <h2 className="user-profile-title">Perfil del Usuario</h2>
+            <div className="user-profile-details">
+                <p><strong>Usuario:</strong> {userData.username}</p>
+                <p><strong>Nombre:</strong> {userData.full_name}</p>
+                <p><strong>Email:</strong> {userData.email}</p>
+                <p><strong>Fecha de Nacimiento:</strong> {formatDate(userData.birth_date)}</p>
+                <p><strong>Edad:</strong> {calculateAge(userData.birth_date)} años</p>
+                <p><strong>Sexo:</strong> {sexo(userData.sex)}</p>
+            </div>
         </div>
         <CalculadoraIMC />
         </>
-        
-        
     );
 }
 
