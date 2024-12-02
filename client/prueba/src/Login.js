@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Login.css';
+
 
 function Login({ onLoginSuccess }) {
     const [username, setUsername] = useState('');
@@ -28,29 +30,33 @@ function Login({ onLoginSuccess }) {
     };
 
     return (
-        <div>
-            <h2>Iniciar Sesión</h2>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            <form onSubmit={handleLogin}>
-                <div>
-                    <label>Nombre de Usuario:</label>
+        <div className="login-container">
+            <h2 className="login-title">Iniciar Sesión</h2>
+            {error && <p className="login-error">{error}</p>}
+            <form className="login-form" onSubmit={handleLogin}>
+                <div className="form-group">
+                    <label htmlFor="username">Nombre de Usuario:</label>
                     <input
+                        id="username"
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
+                        className="form-input"
                     />
                 </div>
-                <div>
-                    <label>Contraseña:</label>
+                <div className="form-group">
+                    <label htmlFor="password">Contraseña:</label>
                     <input
+                        id="password"
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
+                        className="form-input"
                     />
                 </div>
-                <button type="submit">Entrar</button>
+                <button type="submit" className="login-button">Entrar</button>
             </form>
         </div>
     );
