@@ -28,7 +28,7 @@ function Register() {
         
 
         try {
-            const response = await axios.post('https://calculadora-imc-2.onrender.com/api/register', {
+            const response = await axios.post('https://calculadora-imc-servises.onrender.com/api/register', {
                 fullName, username, email, birthDate, sexo, password });
 
             setSuccess(response.data.message);
