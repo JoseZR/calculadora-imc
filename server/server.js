@@ -13,10 +13,14 @@ const PORT = process.env.PORT || 5000;
 
 // Configuración de base de datos
 const pool = mysql.createPool({
+    // host: 'localhost',
+    // user: 'root',
+    // password: '',
+    // database: 'authentication_db'
     host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'authentication_db'
+    user: 'uxisjxrqb8np0es8',
+    password: 'QhwuE0CxanRJJh9pKWEC',
+    database: 'beurshhoyf3ndcuuvm8a'
 });
 
 app.use(cors());
