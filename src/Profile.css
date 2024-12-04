@@ -1,0 +1,42 @@
+/* Contenedor principal del perfil */
+
+.container-padre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background-color: #f9f9f9;
+    gap: 20px;
+}
+
+.user-profile-container {
+    width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del perfil */
+.user-profile-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* Detalles del perfil */
+.user-profile-details p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #555;
+}
+
+.user-profile-details p strong {
+    color: #007bff;
+}
