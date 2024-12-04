@@ -17,7 +17,7 @@ const pool = mysql.createPool({
     // user: 'root',
     // password: '',
     // database: 'authentication_db'
-    host: 'localhost',
+    host: 'beurshhoyf3ndcuuvm8a-mysql.services.clever-cloud.com',
     user: 'uxisjxrqb8np0es8',
     password: 'QhwuE0CxanRJJh9pKWEC',
     database: 'beurshhoyf3ndcuuvm8a'
