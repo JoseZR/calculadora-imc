@@ -28,7 +28,7 @@ function Register() {
         
 
         try {
-            const response = await axios.post('https://calculadora-imc-prueba.netlify.app/register', {
+            const response = await axios.post('https://calculadora-imc-prueba.netlify.app/api/register', {
                 fullName, username, email, birthDate, sexo, password });
 
             setSuccess(response.data.message);
