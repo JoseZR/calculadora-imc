@@ -17,18 +17,18 @@ function Register() {
         setError('');
         setSuccess('');
 
-        console.log('Datos a enviar:', {
-            fullName,
-            username,
-            email,
-            birthDate,
-            sexo,
-            password
-        });
+        // console.log('Datos a enviar:', {
+        //     fullName,
+        //     username,
+        //     email,
+        //     birthDate,
+        //     sexo,
+        //     password
+        // });
         
 
         try {
-            const response = await axios.post('https://calculadora-imc-prueba.netlify.app/api/register', {
+            const response = await axios.post('https://calculadora-imc-prueba.netlify.app/register', {
                 fullName, username, email, birthDate, sexo, password });
 
             setSuccess(response.data.message);
