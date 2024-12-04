@@ -52,7 +52,7 @@ function Profile() {
             }
 
             try {
-                const response = await axios.get('http://localhost:5000/api/profile', {
+                const response = await axios.get('https://calculadora-imc-servises.onrender.com/api/profile', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
