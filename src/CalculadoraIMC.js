@@ -61,7 +61,7 @@ const CalculadoraIMC = () => {
 
     try {
       const response = await axios.put(
-        'http://localhost:5000/api/update-health-metrics',
+        'https://calculadora-imc-servises.onrender.com/api/update-health-metrics',
         {
           weight: parseFloat(weight),
           height: parseFloat(height),
