@@ -34,20 +34,12 @@ const authenticateToken = (req, res, next) => {
     
     if (!token) return res.sendStatus(401);
 
-    // jwt.verify(token,  process.env.SECRET_KEY, (err, user) => {
-    //     if (err) return res.status(403).json({ message: 'Token inválido o expirado' });
-    //     req.user = user;
-    //     next();
-    // });
-
     jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
         if (err) {
             console.log('Token inválido:', err.message);
             return res.sendStatus(403);
         }
         req.user = user;
-        // console.log('Token válido:', user);
-        // console.log('Token válido:', req.user); 
         next();
     });
 };
@@ -84,8 +76,6 @@ app.post('/api/login', async (req, res) => {
                 username: user.username 
             } 
         });
-        // console.log('Token generado:', token);
-        // console.log('Usuario autenticado:', users[0]);
     } catch (error) {
         res.status(500).json({ message: 'Error en el servidor' });
     }
@@ -134,7 +124,7 @@ app.put('/api/update-health-metrics', authenticateToken, async (req, res) => {
     try {
 
     await pool.execute(
-        'INSERT INTO users SET body_weight = ?, height = ?, imc = ?, imc_categoria = ? WHERE user_id = ?', 
+        'UPDATE users SET body_weight = ?, height = ?, imc = ?, imc_categoria = ? WHERE user_id = ?', 
         [weight, height, bmi, bmi_status, userId]
     );
 
