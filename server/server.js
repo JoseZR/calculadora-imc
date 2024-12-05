@@ -134,7 +134,7 @@ app.put('/api/update-health-metrics', authenticateToken, async (req, res) => {
     try {
 
     await pool.execute(
-        'UPDATE users SET body_weight = ?, height = ?, imc = ?, imc_categoria = ? WHERE user_id = ?', 
+        'INSERT INTO users SET body_weight = ?, height = ?, imc = ?, imc_categoria = ? WHERE user_id = ?', 
         [weight, height, bmi, bmi_status, userId]
     );
 
